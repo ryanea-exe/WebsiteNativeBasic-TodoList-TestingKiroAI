@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TodoList App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- Storage warning banner (shown only when localStorage is unavailable) -->
+    <div id="storage-warning" class="storage-warning" role="alert" aria-live="polite" hidden>
+      Peringatan: Penyimpanan lokal tidak tersedia. Data tugas tidak akan tersimpan setelah halaman ditutup.
+    </div>
+
+    <main class="container">
+      <h1 class="app-title">Daftar Tugas</h1>
+
+      <!-- Counter area -->
+      <div id="task-counter" class="task-counter" aria-live="polite">
+        0 tugas belum selesai
+      </div>
+
+      <!-- Form input -->
+      <section class="form-section" aria-label="Tambah tugas baru">
+        <div class="input-group">
+          <input
+            type="text"
+            id="input-tugas"
+            class="input-tugas"
+            placeholder="Tambahkan tugas baru..."
+            aria-label="Judul tugas baru"
+            autocomplete="off"
+          />
+          <button id="btn-tambah" class="btn-tambah" type="button">
+            Tambah
+          </button>
+        </div>
+        <!-- Inline error message for form input -->
+        <div id="input-error" class="error-message" role="alert" aria-live="assertive" hidden></div>
+      </section>
+
+      <!-- Filter bar -->
+      <nav class="filter-bar" aria-label="Filter tugas">
+        <button class="filter-btn active" data-filter="all" type="button">Semua</button>
+        <button class="filter-btn" data-filter="active" type="button">Belum Selesai</button>
+        <button class="filter-btn" data-filter="completed" type="button">Selesai</button>
+      </nav>
+
+      <!-- Task list -->
+      <section aria-label="Daftar tugas">
+        <!-- Empty state message -->
+        <div id="empty-state" class="empty-state" hidden>
+          Belum ada tugas yang ditambahkan.
+        </div>
+
+        <!-- Task list container -->
+        <ul id="task-list" class="task-list" aria-label="Tugas"></ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
